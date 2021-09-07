@@ -5,6 +5,7 @@
  */
 package BUS;
 
+import static BUS.AdminBUS.getMd5;
 import static BUS.HoaDonBUS.arrayList_HoaDon;
 import static BUS.HoaDonBUS.arrayList_HoaDonALL;
 import DAO.NhanVienDAO;
@@ -101,7 +102,7 @@ public class NhanVienBUS {
                 if (idHienHanh == nhanVienTemp.getId()) {
                     nhanVienTemp.setTen(nhanVien.getTen());
                     nhanVienTemp.setHoLot(nhanVien.getHoLot());
-                    nhanVienTemp.setPass(nhanVien.getPass());
+                    nhanVienTemp.setPass(getMd5(nhanVien.getPass()));
                     nhanVienTemp.setGioiTinh(nhanVien.getGioiTinh());
                     nhanVienTemp.setSoDienThoai(nhanVien.getSoDienThoai());
                     nhanVienTemp.setNgaySinh(nhanVien.getNgaySinh());

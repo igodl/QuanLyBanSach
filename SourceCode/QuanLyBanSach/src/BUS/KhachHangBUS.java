@@ -5,6 +5,7 @@
  */
 package BUS;
 
+import static BUS.AdminBUS.getMd5;
 import static BUS.NhanVienBUS.arrayList_NhanVien;
 import DAO.KhachHangDAO;
 import DAO.SachDAO;
@@ -62,7 +63,7 @@ public class KhachHangBUS {
                 if (idHienHanh == khachHangTemp.getId()) {
                     khachHangTemp.setTen(khachHang.getTen());
                     khachHangTemp.setHoLot(khachHang.getHoLot());
-                    khachHangTemp.setPass(khachHang.getPass());
+                    khachHangTemp.setPass(getMd5(khachHang.getPass()));
                     khachHangTemp.setGioiTinh(khachHang.getGioiTinh());
                     khachHangTemp.setSoDienThoai(khachHang.getSoDienThoai());
                     khachHangTemp.setNgaySinh(khachHang.getNgaySinh());

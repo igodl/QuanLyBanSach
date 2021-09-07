@@ -102,7 +102,7 @@ public class ConnectionDatabase {
        if (con == null) {
             try {
                 String url = "jdbc:mysql://" + this.host + ":3306/" + this.nameDb;
-                con = DriverManager.getConnection(url, user, pass);
+                con = DriverManager.getConnection(url, this.user, this.pass);
             } catch (Exception e) {
                 System.out.println("Lỗi Connection");
                 System.out.println(e);

@@ -6,6 +6,7 @@
 package GUI;
 
 import BUS.AdminBUS;
+import static BUS.AdminBUS.getMd5;
 import BUS.HoaDonBUS;
 import DTO.KhachHangDTO;
 import java.awt.event.KeyEvent;
@@ -475,7 +476,7 @@ public class DangKyGUI extends javax.swing.JFrame {
         khachHang.setTinhTrangHoatDong("1");
         
         if (adminBus.checkDauVaoDangKy(khachHang, true)) {
-            if (txMatKhau1.getText().equals(txNhapLaiMatKhau1.getText())) {
+            if (txMatKhau1.getText().equals(txNhapLaiMatKhau1.getText())) {               
                 adminBus.themKhachHang(khachHang);
             }
             else

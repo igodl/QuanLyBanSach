@@ -80,6 +80,7 @@ public class AdminBUS {
         AdminDAO adminDao = new AdminDAO();
 
         if (checkDauVaoNhanVien(nhanVien, true)) {
+            nhanVien.setPass(getMd5(nhanVien.getPass()));
             String query = "SELECT Id FROM account ORDER BY Id ASC";
             ResultSet rs = adminDao.connection.getStatement().executeQuery(query);
 
@@ -104,6 +105,7 @@ public class AdminBUS {
         AdminDAO adminDao = new AdminDAO();
 
         if (checkDauVaoKhachHang(khachHang, true)) {
+            khachHang.setPass(getMd5(khachHang.getPass()));
             String query = "SELECT Id FROM account ORDER BY Id ASC";
             ResultSet rs = adminDao.connection.getStatement().executeQuery(query);
 
@@ -136,7 +138,7 @@ public class AdminBUS {
         }
 
         if (check && checkDauVaoNhanVien(nhanVien, false)) {
-
+            nhanVien.setPass(getMd5(nhanVien.getPass())); //update pass MD5
             arrayList_NhanVien.set(row, nhanVien);
             adminDao.suaNhanVienTrenDatabase(row);
             JOptionPane.showMessageDialog(null, "Sửa thông tin nhân viên thành công");
@@ -155,7 +157,7 @@ public class AdminBUS {
         }
 
         if (check && checkDauVaoKhachHang(khachHang, false)) {
-
+            khachHang.setPass(getMd5(khachHang.getPass()));
             arrayList_KhachHang.set(row, khachHang);
             adminDao.suaKhachHangTrenDatabase(row);
             JOptionPane.showMessageDialog(null, "Sửa thông tin nhân viên thành công");
@@ -1476,7 +1478,7 @@ public class AdminBUS {
         }
     }
 
-    public String getMd5(String input) {
+    public static String getMd5(String input) {
         try {
 
             // Static getInstance method is called with hashing MD5
@@ -1503,6 +1505,6 @@ public class AdminBUS {
 
     public static void main(String[] args) {
         AdminBUS admin = new AdminBUS();
-        System.out.println(admin.getMd5("ahagsdkhaskd"));
+        System.out.println(admin.getMd5("truongnhatvY0"));
     }
 }

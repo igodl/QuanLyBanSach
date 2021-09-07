@@ -7,6 +7,7 @@ package GUI;
 
 import BUS.AdminBUS;
 import static BUS.AdminBUS.arrayList_Admin;
+import static BUS.AdminBUS.getMd5;
 import BUS.ChiTietHoaDonBUS;
 import static BUS.ChiTietHoaDonBUS.arrayList_ChiTietHoaDon;
 import static BUS.ChiTietHoaDonBUS.arrayList_ChiTietHoaDonALL;

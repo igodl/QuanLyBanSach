@@ -6,6 +6,7 @@
  */
 package GUI;
 import BUS.AdminBUS;
+import static BUS.AdminBUS.getMd5;
 import BUS.KhachHangBUS;
 import BUS.NhanVienBUS;
 import java.awt.BorderLayout;
@@ -225,9 +226,9 @@ public class LoginGUI extends javax.swing.JFrame {
             AdminBUS adminBUs = new AdminBUS();
 
             boolean check = false;
-            int idKhachHang = khachHangBus.timAccountKhachHang(txUser.getText(), txPass.getText());
-            int idNhanVien = nhanVienBus.timAccountNhanVien(txUser.getText(), txPass.getText());
-            int idAdmin = adminBUs.timAccountAdmin(txUser.getText(), txPass.getText());
+            int idKhachHang = khachHangBus.timAccountKhachHang(txUser.getText(), getMd5(txPass.getText()));
+            int idNhanVien = nhanVienBus.timAccountNhanVien(txUser.getText(), getMd5(txPass.getText()));
+            int idAdmin = adminBUs.timAccountAdmin(txUser.getText(), getMd5(txPass.getText()));
 
             if (idKhachHang != 0 && idKhachHang != 1) {
                 idHienHanh = idKhachHang;
@@ -331,6 +332,7 @@ public class LoginGUI extends javax.swing.JFrame {
 
             }
         });
+ 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
