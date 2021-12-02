@@ -1170,7 +1170,7 @@ public class AdminBUS {
                 String tenChiTietTemp = chiTietHoaDon.getTenSach().toLowerCase();
 
                 if (chiTietHoaDon.getMaHoaDon() == hoaDon.getMaHoaDon()) {
-                    if (tenChiTietTemp.indexOf(tenSach) != -1) {
+                    if (tenChiTietTemp.indexOf(tenSachTemp) != -1) {
 
                         if (k == -1) { //add vao model ket qua dau tien tim duoc,nhu khoi tao dong dau tien cho model tranh null
                             Vector record = new Vector();

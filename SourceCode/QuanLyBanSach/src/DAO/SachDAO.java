@@ -174,7 +174,7 @@ public class SachDAO {
         int maSach = 0;
         int soLuongDangCo = 0;
         int soLuongKhiDaNhap = 0;
-
+        // doc du lieu o day vi co truong hop vua mo chuong trinh nguoi dung mo chuc nang nay dau tien
         try {
             sachBus.docDuLieuSach();
             tacGiaBus.docDuLieuTacGia();
@@ -198,7 +198,7 @@ public class SachDAO {
                 int soLuongNhap = Integer.parseInt((String) model.getValueAt(i, 6));
                 int donGia = Integer.parseInt(sachBus.removeThousandSeparators((String) model.getValueAt(i, 7)));
 
-                // phai doc lai Database vao cac ArrayList de khi tim trong ArrayList,neu co san pham moi thi ArrayList da cap nhat
+                // doc DB ve ArrayList phong cho truong hop SP dau tien co du lieu moi (tac gia,loai sach,...) thi SP thu 2 cung tac gia SP 1 thi khong xem tac gia SP 2 la tac gia moi
                 try {
                     sachBus.docDuLieuSach();
                     tacGiaBus.docDuLieuTacGia();
@@ -229,7 +229,6 @@ public class SachDAO {
                 } else {
                     String query1 = "INSERT INTO `sanphamsach`(`TenSach`, `MaLoai`, `MaTacGia`, `SoLuong`, `DonGia`, `MaNXB`, `NgayXuatBan`, `TinhTrang`) VALUES ('" + tenSach + "','" + sach.getMaLoai() + "','" + sach.getMaTacGia() + "','" + soLuongNhap + "','" + donGia + "','" + sach.getMaNXB() + "','" + ngayXuatBan + "','Còn bán')";
                     connection.getStatement().executeUpdate(query1);
-
                 }
             }
         } catch (Exception e) {
@@ -237,7 +236,7 @@ public class SachDAO {
             System.out.println(e);
         }
 
-        //  Doc lai du lieu lai tu Database về ArrayList de lan sau khi thanh toan thi ArrayList da duoc cap nhat de thuc hien viec tim kiem trong ArrayList loaiSach,tacGia...
+        //  doc lai DB ve ArrayList de cap nhap SP CUOI CUNG vao ArrayList
         try {
             sachBus.docDuLieuSach();
             tacGiaBus.docDuLieuTacGia();

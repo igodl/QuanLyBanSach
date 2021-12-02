@@ -82,7 +82,7 @@ public class LoaiSachDAO {
             ResultSet rs = connection.getStatement().executeQuery("SELECT MaLoai FROM `loaisach` ORDER BY MaLoai");
 
             while (rs.next()) {
-                sach.setMaLoai(rs.getInt(1));
+                sach.setMaLoai(rs.getInt(1)); //lay duoc MaLoai cuoi cung cua bang LoaiSach,co the dung rs.last()
             }
 
         } else {
